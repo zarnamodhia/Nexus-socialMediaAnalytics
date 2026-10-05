@@ -1,0 +1,6 @@
+{
+  "name": "NEXUS — Social Narrative Intelligence Platform",
+  "description": "AI-Powered Social Media Intelligence Platform for cross-platform narrative monitoring, sentiment & emotion analysis, network propagation graphs, trend tracking, and verifiable evidence provenance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

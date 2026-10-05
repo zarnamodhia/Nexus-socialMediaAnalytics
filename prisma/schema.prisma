@@ -1,0 +1,79 @@
+// This is your Prisma schema file for NEXUS with Supabase PostgreSQL
+// Learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model SocialEvent {
+  id                  String   @id
+  timestamp           DateTime
+  timestampMs         Float
+  platform            String
+  authorId            String
+  authorCluster       String
+  text                String
+  language            String
+  topic               String
+  sentiment           String   // positive, neutral, negative
+  sentimentScore      Float    // -1.0 to 1.0
+  sentimentConfidence Float    // 0.5 to 1.0
+  emotion             String   // joy, anger, fear, sadness, surprise, neutral
+  relationship        String   // original, reply, repost
+  parentEventId       String?
+  likes               Int      @default(0)
+  reposts             Int      @default(0)
+  comments            Int      @default(0)
+  views               Int      @default(0)
+  communityId         String
+  sourceType          String   @default("DEMO") // DEMO, IMPORTED, LIVE
+  evidenceHash        String
+  previousHash        String
+  tampered            Boolean  @default(false)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@index([topic])
+  @@index([platform])
+  @@index([sentiment])
+  @@index([timestampMs])
+}
+
+model Investigation {
+  id                   String   @id
+  title                String
+  topic                String
+  keywords             String[]
+  startMs              Float
+  endMs                Float
+  splitTimestampMs     Float
+  observedFacts        String[]
+  modelInterpretations String[]
+  hypotheses           String[]
+  evidenceIds          String[]
+  dominantSentiment    String
+  peakEmotion          String
+  topPlatform          String
+  primaryCommunity     String
+  viralityRatio        Float
+  totalEvents          Int
+  analystNotes         String   @default("")
+  status               String   @default("active") // active, archived, flagged
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+}
+
+model LedgerAudit {
+  id            String   @id @default(uuid())
+  verifiedAt    DateTime @default(now())
+  isValid       Boolean
+  totalRecords  Int
+  verifiedCount Int
+  elapsedMs     Float
+}
