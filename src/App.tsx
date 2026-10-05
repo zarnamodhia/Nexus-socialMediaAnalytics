@@ -21,6 +21,7 @@ import { CaseStudiesPage } from './pages/website/CaseStudiesPage';
 import { MethodologyPage } from './pages/website/MethodologyPage';
 import { ApiDocsPage } from './pages/website/ApiDocsPage';
 import { AboutPage } from './pages/website/AboutPage';
+import { ResearchDocPage } from './pages/website/ResearchDocPage';
 
 export default function App() {
   return (
@@ -42,6 +43,7 @@ export default function App() {
             <Route path="/settings" element={<Settings />} />
 
             {/* Editorial, Methodology & Documentation Routes */}
+            <Route path="/research" element={<ResearchDocPage />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/case-studies" element={<CaseStudiesPage />} />
             <Route path="/methodology" element={<MethodologyPage />} />
@@ -49,6 +51,7 @@ export default function App() {
             <Route path="/about" element={<AboutPage />} />
 
             {/* Legacy URL Aliases & Redirects */}
+            <Route path="/docs" element={<Navigate to="/research" replace />} />
             <Route path="/overview" element={<Navigate to="/dashboard" replace />} />
             <Route path="/timeline" element={<Navigate to="/content" replace />} />
             <Route path="/trends" element={<Navigate to="/analytics" replace />} />

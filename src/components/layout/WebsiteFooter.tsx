@@ -128,6 +128,12 @@ export const WebsiteFooter: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
+                <Link to="/research" className="text-slate-900 font-semibold hover:underline transition-colors flex items-center gap-1">
+                  <span>Research Specification (14p)</span>
+                  <span className="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-1 rounded">SIH</span>
+                </Link>
+              </li>
+              <li>
                 <Link to="/case-studies" className="text-slate-600 hover:text-slate-950 transition-colors">
                   Investigative Case Studies
                 </Link>

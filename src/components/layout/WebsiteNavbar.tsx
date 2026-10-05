@@ -34,9 +34,10 @@ const PRIMARY_NAV: NavItem[] = [
 ];
 
 const SECONDARY_NAV: { path: string; label: string; desc: string; icon: React.ComponentType<{ className?: string }> }[] = [
+  { path: '/research', label: 'Research Specification', desc: '14-page formal scientific doc for SIH 26152', icon: FileText },
   { path: '/evidence', label: 'Evidence Ledger', desc: 'SHA-256 cryptographic provenance & audit chain', icon: ShieldCheck },
   { path: '/sources', label: 'Data Sources & Ingest', desc: 'CSV, JSON upload & platform stream feeds', icon: Database },
-  { path: '/case-studies', label: 'Investigative Case Studies', desc: 'Documented narrative contagion breakdowns', icon: FileText },
+  { path: '/case-studies', label: 'Investigative Case Studies', desc: 'Documented narrative contagion breakdowns', icon: Layers },
   { path: '/methodology', label: 'Mathematical Proofs', desc: 'Volume velocity, entropy & sentiment formulas', icon: BookOpen },
   { path: '/api-docs', label: 'API & Ingestion Schema', desc: 'REST endpoints and data normalization spec', icon: Code },
   { path: '/settings', label: 'Settings & Disclosures', desc: 'Environment variables & database config', icon: Sliders },
